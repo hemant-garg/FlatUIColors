@@ -1,10 +1,10 @@
-.Pallete {
+.Palette {
 	height: 100vh;
 	overflow: hidden;
 	display: flex;
 	flex-direction: column;
 }
-.Pallete-colors {
+.Palette-colors {
 	height: 90%;
 }
 .Palette-footer {
