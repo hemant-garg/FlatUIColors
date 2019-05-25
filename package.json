@@ -10,7 +10,8 @@
     "react-color": "^2.17.3",
     "react-dom": "^16.8.6",
     "react-material-ui-form-validator": "^2.0.8",
-    "react-scripts": "0.9.5"
+    "react-scripts": "0.9.5",
+    "react-sortable-hoc": "^1.9.1"
   },
   "devDependencies": {},
   "scripts": {

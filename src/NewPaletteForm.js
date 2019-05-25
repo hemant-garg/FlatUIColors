@@ -14,7 +14,8 @@ import Button from '@material-ui/core/Button';
 import { ChromePicker } from 'react-color';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 
-import DraggableColorBox from './DraggableColorBox';
+import DraggableColorList from './DraggableColorList';
+import { arrayMove } from 'react-sortable-hoc';
 
 const drawerWidth = 300;
 const styles = (theme) => ({
@@ -78,8 +79,9 @@ class NewPaletteForm extends Component {
 	state = {
 		open: true,
 		currentColor: 'teal',
-		colors: [],
-		newName: ''
+		colors: this.props.palettes[0].colors,
+		newColorName: '',
+		newPaletteName: ''
 	};
 
 	componentDidMount() {
@@ -88,6 +90,9 @@ class NewPaletteForm extends Component {
 		);
 		ValidatorForm.addValidationRule('isColorUnique', () =>
 			this.state.colors.every((color) => color.color !== this.state.currentColor)
+		);
+		ValidatorForm.addValidationRule('isPaletteNameUnique', (value) =>
+			this.props.palettes.every(({ paletteName }) => paletteName.toLowerCase() !== value.toLowerCase())
 		);
 	}
 
@@ -104,13 +109,35 @@ class NewPaletteForm extends Component {
 	addNewColor = () => {
 		const newColor = {
 			color: this.state.currentColor,
-			name: this.state.newName
+			name: this.state.newColorName
 		};
-		this.setState({ colors: [ ...this.state.colors, newColor ], newName: '' });
+		this.setState({ colors: [ ...this.state.colors, newColor ], newColorName: '' });
 	};
 	handleChange = (e) => {
-		this.setState({ newName: e.target.value });
+		this.setState({ [e.target.name]: e.target.value });
 	};
+	handleSubmit = () => {
+		let newName = this.state.newPaletteName;
+		const newPalette = {
+			paletteName: newName,
+			id: newName.toLowerCase().replace(/ /g, '-'),
+			colors: this.state.colors
+		};
+		this.props.savePalette(newPalette);
+		this.props.history.push('/');
+	};
+
+	removeColor = (colorName) => {
+		this.setState({
+			colors: this.state.colors.filter((color) => color.name !== colorName)
+		});
+	};
+	onSortEnd = ({ oldIndex, newIndex }) => {
+		this.setState(({ colors }) => ({
+			colors: arrayMove(colors, oldIndex, newIndex)
+		}));
+	};
+
 	render() {
 		const { classes } = this.props;
 		const { open } = this.state;
@@ -119,6 +146,7 @@ class NewPaletteForm extends Component {
 				<CssBaseline />
 				<AppBar
 					position='fixed'
+					color='default'
 					className={classNames(classes.appBar, {
 						[classes.appBarShift]: open
 					})}
@@ -136,6 +164,19 @@ class NewPaletteForm extends Component {
 						<Typography variant='h6' noWrap>
 							Persistent drawer
 						</Typography>
+						<ValidatorForm onSubmit={this.handleSubmit}>
+							<TextValidator
+								name='newPaletteName'
+								label='Palette Name'
+								onChange={this.handleChange}
+								value={this.state.newPaletteName}
+								validators={[ 'required', 'isPaletteNameUnique' ]}
+								errorMessages={[ 'Enter Palette Name', 'Name already taken!' ]}
+							/>
+							<Button variant='contained' type='submit' color='primary'>
+								Save Palette
+							</Button>
+						</ValidatorForm>
 					</Toolbar>
 				</AppBar>
 				<Drawer
@@ -165,8 +206,9 @@ class NewPaletteForm extends Component {
 					<ChromePicker color={this.state.currentColor} onChangeComplete={this.updateColor} />
 					<ValidatorForm onSubmit={this.addNewColor}>
 						<TextValidator
-							value={this.state.newName}
+							value={this.state.newColorName}
 							onChange={this.handleChange}
+							name='newColorName'
 							validators={[ 'required', 'isColorNameUnique', 'isColorUnique' ]}
 							errorMessages={[
 								'Color Name is required',
@@ -192,7 +234,12 @@ class NewPaletteForm extends Component {
 				>
 					<div className={classes.drawerHeader} />
 
-					{this.state.colors.map((color) => <DraggableColorBox color={color.color} name={color.name} />)}
+					<DraggableColorList
+						onSortEnd={this.onSortEnd}
+						axis='xy'
+						colors={this.state.colors}
+						removeColor={this.removeColor}
+					/>
 				</main>
 			</div>
 		);
