@@ -71,7 +71,6 @@ export default {
 		background: 'rgba(255, 255, 255, .3)',
 		fontSize: '1rem',
 		lineHeight: '30px',
-		color: '#fff',
 		opacity: 0,
 		textTransform: 'uppercase',
 		textDecoration: 'none',

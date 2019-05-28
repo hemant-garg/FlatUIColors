@@ -21,7 +21,6 @@ export default {
 		backgroundColor: 'black',
 		'& a': {
 			width: '100px',
-			color: '#fff',
 			height: '30px',
 			position: 'absolute',
 			display: 'inline-block',

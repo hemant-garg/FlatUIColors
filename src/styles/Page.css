@@ -2,19 +2,16 @@
 	height: 100vh;
 	position: fixed;
 	width: 100%;
-	transition: opacity .5s ease-in-out;
+	transition: transform .5s ease-in-out;
 	top: 0;
 }
 .page-enter {
-	/* transform: translateX(100%); */
-	opacity: 0;
+	transform: translateX(100%);
 }
 
 .page-enter-active {
-	opacity: 1;
-	/* transform: translateX(0); */
+	transform: translateX(0);
 }
 .page-exit-active {
-	opacity: 0;
-	/* transform: translateX(-100%); */
+	transform: translateX(-100%);
 }
