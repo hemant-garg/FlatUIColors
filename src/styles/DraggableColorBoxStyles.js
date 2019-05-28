@@ -9,10 +9,6 @@ export default {
 		position: 'relative',
 		cursor: 'pointer',
 		marginBottom: '-5px',
-		'&:hover svg': {
-			color: '#fff',
-			transform: 'scale(1.3)'
-		},
 
 		[sizes.down('lg')]: {
 			width: '25%',
@@ -21,7 +17,7 @@ export default {
 	},
 	colorName: {
 		[sizes.down('sm')]: {
-			display: 'none'
+			opacity: 0
 		}
 	},
 	boxContent: {
@@ -40,7 +36,16 @@ export default {
 		alignItems: 'center'
 	},
 	deleteIcon: {
-		color: 'rgba(0,0,0,.5)',
-		transition: 'all .3s ease-in-out'
+		color: 'rgba(0,0,0,.4)',
+		transition: 'all .3s ease',
+		'&:hover': {
+			color: '#fff',
+			transform: 'scale(1.3)'
+		}
+	},
+	menuIcon: {
+		color: 'rgba(255, 255, 255, 0.7)',
+		margin: '12px 0 0 12px',
+		fontSize: '1rem'
 	}
 };

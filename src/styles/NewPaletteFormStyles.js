@@ -45,13 +45,14 @@ const styles = (theme) => ({
 		display: 'flex',
 		flexDirection: 'column',
 		alignItems: 'center',
-		justifyContent: 'center',
+		paddingTop: '2rem',
 		height: '100%'
 	},
 	buttons: {
 		width: '100%'
 	},
 	button: {
+		fontSize: '.8rem',
 		width: '50%'
 	}
 });
