@@ -1,5 +1,5 @@
 import sizes from './mediaSizes';
-
+import chroma from 'chroma-js';
 export default {
 	root: {
 		width: '20%',
@@ -35,7 +35,7 @@ export default {
 		left: '0',
 		bottom: '0',
 		padding: '10px',
-		color: '#000',
+		color: (props) => (chroma(props.color).luminance() <= 0.08 ? 'rgba(255, 255, 255, .8)' : 'rgba(0,0,0,.6)'),
 		letterSpacing: '1px',
 		textTransform: 'uppercase',
 		fontSize: '12px',
