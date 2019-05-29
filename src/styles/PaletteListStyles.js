@@ -96,8 +96,10 @@ export default {
 		textAlign: 'right',
 		'& span': {
 			color: 'red',
-			fontSize: '1.3rem'
-			// backgroundColor: 'red'
+			fontSize: '1.3rem',
+			[sizes.down('xs')]: {
+				fontSize: '1.1rem'
+			}
 		},
 		'& a': {
 			textDecoration: 'none',
