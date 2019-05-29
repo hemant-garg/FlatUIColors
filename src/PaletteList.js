@@ -58,6 +58,13 @@ class PaletteList extends Component {
 						))}
 					</TransitionGroup>
 				</div>
+				<footer className={classes.footer}>
+					{' '}
+					Build with <span>&#10084;</span> by{' '}
+					<a href='https://hemantgarg.me/' target='_blank'>
+						HEMANT GARG
+					</a>
+				</footer>
 				<Dialog onClose={this.closeDialog} open={isDialogOpen} aria-labelledby='delete-dialog-title'>
 					<DialogTitle id='delete-dialog-title'>
 						Are you sure, you want to delete this beautiful palette?

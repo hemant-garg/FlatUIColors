@@ -9,15 +9,31 @@ export default {
 		position: 'relative',
 		cursor: 'pointer',
 		marginBottom: '-5px',
-
 		[sizes.down('lg')]: {
 			width: '25%',
 			height: '20%'
+		},
+		'&:hover': {
+			transform: 'scale(1.1)',
+			transition: 'transform .3s ease',
+			zIndex: 5,
+			borderRadius: '7px',
+			[sizes.down('sm')]: {
+				transform: 'none'
+			}
+		},
+		'&:hover svg': {
+			opacity: 1,
+			transform: 'translateX(-5px)',
+			visibility: 'visible',
+			[sizes.down('sm')]: {
+				transform: 'none'
+			}
 		}
 	},
 	colorName: {
 		[sizes.down('sm')]: {
-			opacity: 0
+			display: 'none'
 		}
 	},
 	boxContent: {
@@ -36,16 +52,18 @@ export default {
 		alignItems: 'center'
 	},
 	deleteIcon: {
-		color: 'rgba(0,0,0,.4)',
+		color: '#fff',
+		opacity: 0,
+		visibility: 'hidden',
 		transition: 'all .3s ease',
 		'&:hover': {
-			color: '#fff',
 			transform: 'scale(1.3)'
+		},
+		[sizes.down('sm')]: {
+			opacity: 1,
+			visibility: 'visible',
+			fontSize: '1rem',
+			color: 'rgba(0,0,0,.4)'
 		}
-	},
-	menuIcon: {
-		color: 'rgba(255, 255, 255, 0.7)',
-		margin: '12px 0 0 12px',
-		fontSize: '1rem'
 	}
 };

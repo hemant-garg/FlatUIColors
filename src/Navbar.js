@@ -30,7 +30,7 @@ class Navbar extends Component {
 		return (
 			<header className={classes.Navbar}>
 				<div className={classes.logo}>
-					<Link to={link}>{'<-  Back'}</Link>
+					<Link to={link}>&larr; Back</Link>
 				</div>
 
 				<div className={classes.selectContainer}>

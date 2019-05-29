@@ -1,7 +1,4 @@
-import sizes from './mediaSizes';
-
 export default {
-	'@global': {},
 	Navbar: {
 		display: 'flex',
 		alignItems: 'center',
@@ -24,8 +21,7 @@ export default {
 	},
 
 	selectContainer: {
-		marginLeft: 'auto',
-		marginRight: '1rem',
+		margin: '.1rem 1rem 0 auto',
 		backgroundColor: '#162030',
 		padding: '4px 10px 4px 25px',
 		borderRadius: '6px',

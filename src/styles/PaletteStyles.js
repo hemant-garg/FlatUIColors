@@ -21,11 +21,12 @@ export default {
 		backgroundColor: 'black',
 		'& a': {
 			width: '100px',
-			height: '30px',
+			// height: '30px',
 			position: 'absolute',
 			display: 'inline-block',
 			top: '50%',
 			left: '50%',
+			padding: '.7rem .5rem',
 			transform: 'translate(-50%, -50%)',
 			textAlign: 'center',
 			outline: 'none',
@@ -35,19 +36,16 @@ export default {
 			color: '#fff',
 			textTransform: 'uppercase',
 			textDecoration: 'none',
-			border: 'none'
+			border: 'none',
+			[sizes.down('xs')]: {
+				width: '70px',
+				padding: '.5rem 0rem',
+				fontSize: '1rem'
+			}
 		},
 		[sizes.down('lg')]: {
 			width: '25%',
 			height: '33.3333%'
-		},
-		[sizes.down('md')]: {
-			width: '50%',
-			height: '20%'
-		},
-		[sizes.down('xs')]: {
-			width: '100%',
-			height: '10%'
 		}
 	}
 };

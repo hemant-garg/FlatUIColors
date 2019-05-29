@@ -9,9 +9,11 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import Button from '@material-ui/core/Button';
 
 import DraggableColorList from './DraggableColorList';
-import { arrayMove } from 'react-sortable-hoc';
+import arrayMove from 'array-move';
+
 import PaletteFormNav from './PaletteFormNav';
 import ColorPickerForm from './ColorPickerForm';
+import PaletteFooter from './PaletteFooter';
 import seedColors from './seedColors';
 import styles from './styles/NewPaletteFormStyles';
 
@@ -143,6 +145,7 @@ class NewPaletteForm extends Component {
 						colors={colors}
 						removeColor={this.removeColor}
 					/>
+					<PaletteFooter paletteName='Create your beautiful palette' />
 				</main>
 			</div>
 		);

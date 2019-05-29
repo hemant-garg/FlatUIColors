@@ -16,7 +16,12 @@ const styles = (theme) => ({
 		flexDirection: 'row',
 		justifyContent: 'space-between',
 		alignItems: 'center',
-		height: '64px'
+		boxShadow: 'none',
+		'& h6': {
+			[sizes.down('sm')]: {
+				display: 'none'
+			}
+		}
 	},
 
 	appBarShift: {
@@ -28,7 +33,7 @@ const styles = (theme) => ({
 		})
 	},
 	menuButton: {
-		marginRight: theme.spacing.unit * 3
+		marginRight: theme.spacing(3)
 	},
 	navButtons: {
 		marginRight: '1rem',

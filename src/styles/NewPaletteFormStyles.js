@@ -1,7 +1,9 @@
 import { DRAWER_WIDTH as drawerWidth } from '../constants';
 const styles = (theme) => ({
 	root: {
-		display: 'flex'
+		display: 'flex',
+		overflow: 'hidden',
+		minHeight: '100vh'
 	},
 	hide: {
 		display: 'none'
@@ -40,6 +42,7 @@ const styles = (theme) => ({
 		}),
 		marginLeft: 0
 	},
+
 	container: {
 		width: '90%',
 		display: 'flex',
