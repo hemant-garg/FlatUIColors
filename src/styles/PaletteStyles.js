@@ -36,10 +36,11 @@ export default {
 			color: '#fff',
 			textTransform: 'uppercase',
 			textDecoration: 'none',
+			borderRadius: '5px',
 			border: 'none',
 			[sizes.down('xs')]: {
 				width: '70px',
-				padding: '.5rem 0rem',
+				padding: '.5rem .3rem',
 				fontSize: '1rem'
 			}
 		},
