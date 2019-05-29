@@ -48,7 +48,7 @@ const styles = (theme) => ({
 		margin: '0 0.5rem',
 		[sizes.down('xs')]: {
 			margin: '0 0.2rem',
-			padding: '0.3rem'
+			padding: '0.3rem .8rem'
 		}
 	}
 });

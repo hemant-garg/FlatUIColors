@@ -1,3 +1,5 @@
+import sizes from './mediaSizes';
+
 export default {
 	root: {
 		backgroundColor: 'white',
@@ -51,6 +53,11 @@ export default {
 		padding: '12px',
 		zIndex: 10,
 		opacity: 0,
-		transition: 'all 0.3s ease-in-out !important'
+		transition: 'all 0.3s ease-in-out !important',
+		[sizes.down('xs')]: {
+			opacity: 1,
+			width: '20px',
+			height: '20px'
+		}
 	}
 };

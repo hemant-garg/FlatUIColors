@@ -61,7 +61,7 @@ class PaletteList extends Component {
 				<footer className={classes.footer}>
 					{' '}
 					Build with <span>&#10084;</span> by{' '}
-					<a href='https://hemantgarg.me/' target='_blank'>
+					<a href='https://hemantgarg.me/' rel='noopener noreferrer' target='_blank'>
 						HEMANT GARG
 					</a>
 				</footer>
